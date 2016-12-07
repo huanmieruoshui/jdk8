@@ -258,7 +258,7 @@ public class Vector<E>
         // overflow-conscious code
         int oldCapacity = elementData.length;
         int newCapacity = oldCapacity + ((capacityIncrement > 0) ?
-                                         capacityIncrement : oldCapacity);
+                                         capacityIncrement : oldCapacity); // 如果不指定capacityIncrement，每次扩展为原来的2倍
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
         if (newCapacity - MAX_ARRAY_SIZE > 0)
@@ -285,9 +285,9 @@ public class Vector<E>
      */
     public synchronized void setSize(int newSize) {
         modCount++;
-        if (newSize > elementCount) {
+        if (newSize > elementCount) { // 指定newSize大于原来数组大小，进行扩容
             ensureCapacityHelper(newSize);
-        } else {
+        } else { // 指定newSize小于等于原来数组大小，从newSize位置开始，将每个元素置空
             for (int i = newSize ; i < elementCount ; i++) {
                 elementData[i] = null;
             }
@@ -303,7 +303,7 @@ public class Vector<E>
      *          of this vector)
      */
     public synchronized int capacity() {
-        return elementData.length;
+        return elementData.length; // 数组的容量
     }
 
     /**
@@ -312,7 +312,7 @@ public class Vector<E>
      * @return  the number of components in this vector
      */
     public synchronized int size() {
-        return elementCount;
+        return elementCount; // 元素的数量
     }
 
     /**
@@ -335,6 +335,7 @@ public class Vector<E>
      * @return  an enumeration of the components of this vector
      * @see     Iterator
      */
+    // 可以遍历Vector
     public Enumeration<E> elements() {
         return new Enumeration<E>() {
             int count = 0;

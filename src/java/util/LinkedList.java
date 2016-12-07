@@ -1170,7 +1170,7 @@ public class LinkedList<E>
      * @return a {@code Spliterator} over the elements in this list
      * @since 1.8
      */
-    // 1.8新增方法，暂未看
+    // 1.8新增，有待研究
     @Override
     public Spliterator<E> spliterator() {
         return new LLSpliterator<E>(this, -1, 0);
