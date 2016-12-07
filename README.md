@@ -1,2 +1,1 @@
-# jdk8
-jdk8 resource
+jdk8源码，会逐步加上自己的阅读注释。
